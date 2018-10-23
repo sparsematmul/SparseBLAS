@@ -8,3 +8,5 @@ We use the libraries obtained from BLAS at https://math.nist.gov/spblas/ and use
 checker.c is used to implement a matrix-vector multiplication.
 
 checker2.c is used to implement a matrix-matrix multiplication
+
+The run-sniper.sh file is used to calculate the power patterns in the Gainestown architecture as set up.
