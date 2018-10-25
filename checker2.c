@@ -55,11 +55,11 @@ int main()
 	SimRoiStart();
 	clock_t before=clock();
 	BLAS_dusmm(216,blas_no_trans,1, alpha, A, B, 1,c,1);
-	clocl_t aft=clock()-before;
-	msec=aft*1000/ CLOCKS_PER_SEC;
+	clock_t aft=clock()-before;
+	msec=aft*1000.0/ CLOCKS_PER_SEC;
 	SimRoiEnd();
 	BLAS_usds(A);
-	printf("%f ",msec);
+	printf("%.10f ",msec);
 	return 0;
 }
 double prime(int a)
