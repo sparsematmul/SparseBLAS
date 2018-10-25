@@ -41,7 +41,7 @@ int main()
 	blas_sparse_matrix A;
 	double alpha=1.0;
 	double c[128];
-	for(i=0;i<128;i++)
+	for(i=0;i<216;i++)
 	c[i]=1.0;
 	
 	A=BLAS_duscr_begin(N,N);
@@ -51,7 +51,7 @@ int main()
 	
 	/*BLAS_uscr_end(A);*/
 	SimRoiStart();
-	BLAS_dusmm(128,blas_no_trans,1, alpha, A, B, 1,c,1);
+	BLAS_dusmm(216,blas_no_trans,1, alpha, A, B, 1,c,1);
 	SimRoiEnd();
 	BLAS_usds(A);
 	return 0;
