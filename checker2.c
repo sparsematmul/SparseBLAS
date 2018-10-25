@@ -1,10 +1,12 @@
 #include "blas_sparse.h"
 #include <stdio.h>
 #include <sim_api.h>
+#include <time.h>
 
 double val[100],val2[100];
 int indx1[100],jndx1[100],indx2[100],jndx2[100];
 double B[100];
+double msec;
 double prime(int);
 int main()
 {
@@ -51,9 +53,13 @@ int main()
 	
 	/*BLAS_uscr_end(A);*/
 	SimRoiStart();
+	clock_t before=clock();
 	BLAS_dusmm(216,blas_no_trans,1, alpha, A, B, 1,c,1);
+	clocl_t aft=clock()-before;
+	msec=aft*1000/ CLOCKS_PER_SEC;
 	SimRoiEnd();
 	BLAS_usds(A);
+	printf("%f ",msec);
 	return 0;
 }
 double prime(int a)
