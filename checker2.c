@@ -40,7 +40,7 @@ int main()
 	
 	blas_sparse_matrix A;
 	double alpha=1.0;
-	double c[128];
+	double c[216];
 	for(i=0;i<216;i++)
 	c[i]=1.0;
 	
