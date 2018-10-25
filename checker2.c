@@ -1,6 +1,6 @@
 #include "blas_sparse.h"
 #include <stdio.h>
-
+#include <sim_api.h>
 
 double val[100],val2[100];
 int indx1[100],jndx1[100],indx2[100],jndx2[100];
@@ -50,9 +50,9 @@ int main()
 	BLAS_duscr_insert_entry(A,val[i],indx1[i],jndx1[i]);;
 	
 	/*BLAS_uscr_end(A);*/
-	
+	SimRoiStart();
 	BLAS_dusmm(128,blas_no_trans,1, alpha, A, B, 1,c,1);
-	
+	SimRoiEnd();
 	BLAS_usds(A);
 	return 0;
 }
